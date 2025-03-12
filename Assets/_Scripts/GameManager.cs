@@ -4,7 +4,7 @@ using UnityEngine;
 public class GameManager : SingletonMonoBehavior<GameManager>
 {
     [SerializeField] private int score = 0;
-    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private CoinCounterUi coinCounter;
 
     protected override void Awake()
     {
@@ -12,10 +12,9 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
-
     public void IncreaseScore()
     {
         score++;
-        scoreText.text = $"Score: {score}";
+        coinCounter.UpdateScore(score);
     }
 }
